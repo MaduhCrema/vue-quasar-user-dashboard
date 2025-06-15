@@ -1,1 +1,8 @@
 // app global css in SCSS form
+.d-flex {
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  align-items: center;
+  justify-content: center;
+}
