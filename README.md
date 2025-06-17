@@ -17,9 +17,6 @@ A API utilizada é a [reqres.in](https://reqres.in), que serve como um serviço 
 ✅ Cadastro de novo usuário (armazenado em memória)  
 ✅ Edição e exclusão de usuários (em memória)  
 ✅ Manutenção e destruição da sessão  
-✅ Interface moderna e responsiva com **Quasar UI**  
-✅ Código versionado com **Git** e dividido em **componentes reutilizáveis**  
-✅ Uso de **Vue Router** para navegação e **Pinia** (ou Vuex) para gerenciamento de estado
 
 > ℹ️ **Observação:** Como a API é apenas de testes, as alterações (cadastro, edição e exclusão) não são persistidas no backend, sendo tratadas apenas localmente no frontend.
 
