@@ -15,6 +15,7 @@
 
 <script setup lang="ts">
 import { ref } from 'vue';
+import { Cookies } from 'quasar';
 import { useRouter } from 'vue-router';
 
 const router = useRouter();
@@ -49,7 +50,7 @@ async function verifiedLogin(): Promise<void> {
     }
 
     const data = await response.json();
-    localStorage.setItem('token', data.token); // armazenando token real retornado
+    Cookies.set('token', data.token); // armazenando token real retornado
     await router.push('/'); // redireciona para o dashboard
   } catch (e) {
     erro.value = 'E-mail ou senha incorreto!';

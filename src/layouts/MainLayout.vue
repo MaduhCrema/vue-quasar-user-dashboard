@@ -24,6 +24,7 @@
 
 <script setup lang="ts">
 import { ref } from 'vue';
+import { Cookies } from 'quasar';
 import EssentialLink, { type EssentialLinkProps } from 'components/EssentialLink.vue';
 
 import { useRouter } from 'vue-router';
@@ -31,7 +32,7 @@ import { useRouter } from 'vue-router';
 const router = useRouter();
 
 async function verificaSessao(): Promise<void> {
-  const token = localStorage.getItem('token');
+  const token = Cookies.get('token');
 
   if (token) {
     console.log('Token válido!');
@@ -46,7 +47,7 @@ verificaSessao().catch((e) => {
 });
 
 async function logout(): Promise<void> {
-  localStorage.clear();
+  Cookies.remove('token');
   await router.push('/login');
 }
 
