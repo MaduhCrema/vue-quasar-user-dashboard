@@ -49,5 +49,6 @@ yarn dev
 ```
 
 ### 4. Acesse no navegador:
-
+```bash
 http://localhost:9000
+```
