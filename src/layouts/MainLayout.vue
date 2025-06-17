@@ -4,7 +4,7 @@
       <q-toolbar>
         <q-btn flat dense round icon="menu" aria-label="Menu" @click="toggleLeftDrawer" />
 
-        <q-toolbar-title> Vue and Quasar Test Application </q-toolbar-title>
+        <q-toolbar-title> User Management </q-toolbar-title>
 
         <q-btn color="white" class="text-black" @click="logout">Logout</q-btn>
       </q-toolbar>
@@ -61,7 +61,7 @@ const linksList: EssentialLinkProps[] = [
   {
     title: 'Usuários',
     caption: 'lista de usuários',
-    icon: 'home',
+    icon: 'account_circle',
     link: 'user',
   },
 ];
