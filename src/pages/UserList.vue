@@ -19,7 +19,7 @@
             :src="props.row.avatar"
             alt="avatar"
             class="q-avatar"
-            style="width: 32px; border-radius: 50%"
+            style="width: 32px; height: 32px; border-radius: 50%"
           />
         </q-td>
       </template>
@@ -43,6 +43,8 @@
 
         <q-card-section>
           <q-input v-model="formNome" label="Nome" />
+          <q-input v-model="formLastName" label="Sobrenome" />
+          <q-input v-model="formEmail" label="E-mail" />
           <q-input v-model="formJob" label="Cargo" />
         </q-card-section>
 
@@ -75,6 +77,8 @@ const erro = ref<string | null>(null);
 //para novos users
 const dialogAberto = ref(false);
 const formNome = ref('');
+const formLastName = ref('');
+const formEmail = ref('');
 const formJob = ref('');
 const editandoId = ref<number | null>(null);
 
@@ -116,6 +120,8 @@ listaUsers().catch((e) => {
 
 function abrirNovoUsuario() {
   formNome.value = '';
+  formLastName.value = '';
+  formEmail.value = '';
   formJob.value = '';
   editandoId.value = null;
   dialogAberto.value = true;
@@ -123,6 +129,8 @@ function abrirNovoUsuario() {
 
 function abrirEdicao(user: Usuario) {
   formNome.value = user.first_name;
+  formLastName.value = user.last_name;
+  formEmail.value = user.email;
   formJob.value = user.job || 'Cargo não informado';
   editandoId.value = user.id;
   dialogAberto.value = true;
@@ -135,7 +143,9 @@ async function salvarUser(): Promise<void> {
         method: 'PUT',
         headers: { 'x-api-key': 'reqres-free-v1', 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          name: formNome.value,
+          firstName: formNome.value,
+          lastName: formLastName.value,
+          email: formEmail.value,
           job: formJob.value,
         }),
       });
@@ -144,6 +154,8 @@ async function salvarUser(): Promise<void> {
       const usuarioEditado = usuarios.value[index];
       if (usuarioEditado) {
         usuarioEditado.first_name = formNome.value;
+        usuarioEditado.last_name = formLastName.value;
+        usuarioEditado.email = formEmail.value;
         usuarioEditado.job = formJob.value;
       }
     } else {
@@ -151,7 +163,9 @@ async function salvarUser(): Promise<void> {
         method: 'POST',
         headers: { 'x-api-key': 'reqres-free-v1', 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          name: formNome.value,
+          firstName: formNome.value,
+          lastName: formLastName.value,
+          email: formEmail.value,
           job: formJob.value,
         }),
       });
@@ -161,9 +175,10 @@ async function salvarUser(): Promise<void> {
       usuarios.value.push({
         id: parseInt(data.id) || Math.random(),
         first_name: formNome.value,
-        last_name: '',
-        email: '',
-        avatar: '',
+        last_name: formLastName.value,
+        email: formEmail.value,
+        avatar:
+          'https://static.vecteezy.com/system/resources/previews/009/292/244/non_2x/default-avatar-icon-of-social-media-user-vector.jpg',
         job: formJob.value,
       });
     }

@@ -8,7 +8,7 @@
 
       <q-input filled v-model="email" type="email" label="E-mail" />
       <q-input filled v-model="senha" type="password" label="Senha" />
-      <q-btn label="Entrar" color="primary" class="full-width" @click="verifiedLogin" />
+      <q-btn label="Entrar" color="primary" style="width: 340px" @click="verifiedLogin" />
     </div>
   </div>
 </template>
