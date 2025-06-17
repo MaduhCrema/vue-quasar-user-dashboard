@@ -49,3 +49,9 @@ yarn dev
 ```bash
 http://localhost:9000
 ```
+
+### 5. Dados para login (Disponibilizados pela API):
+```bash
+    email: eve.holt@reqres.in
+    password: pistol
+```
