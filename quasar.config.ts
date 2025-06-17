@@ -44,6 +44,8 @@ export default defineConfig((/* ctx */) => {
       },
 
       vueRouterMode: 'hash', // available values: 'hash', 'history'
+      publicPath: '/vue-quasar-user-dashboard/', // Para o hithub pages
+
       // vueRouterBase,
       // vueDevtools,
       // vueOptionsAPI: false,
