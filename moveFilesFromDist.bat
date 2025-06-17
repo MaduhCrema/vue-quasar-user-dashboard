@@ -1,0 +1,6 @@
+@echo off
+echo Limpando arquivos da pasta docs...
+del /q docs\* >nul 2>&1
+for /d %%i in (docs\*) do rd /s /q "%%i"
+echo Movendo arquivos para a pasta docs...
+move dist\spa\* docs\
