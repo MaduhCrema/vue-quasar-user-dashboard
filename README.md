@@ -33,19 +33,13 @@ git clone https://github.com/MaduhCrema/vue-quasar-user-dashboard
 cd vue-quasar-user-dashboard
 ```
 
-### 2. Instalação de dependências (caso você já não tenha instalado)
-
-```bash
-npm install highcharts highcharts-vue
-```
-
-### 3. Execute o projeto em modo desenvolvimento
+### 2. Execute o projeto em modo desenvolvimento
 
 ```bash
 yarn dev
 ```
 
-### 4. Acesse no navegador:
+### 3. Acesse no navegador:
 ```bash
 http://localhost:9000
 ```
